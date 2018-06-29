@@ -51,7 +51,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // PFFacebookUtils.initializeFacebook()
         // ****************************************************************************
 
-        //PFUser.enableAutomaticUser()
 
         let defaultACL = PFACL()
 

@@ -79,12 +79,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" id="f6i-T4-cAc">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" textLabel="UHT-AK-AWy" style="IBUITableViewCellStyleDefault" id="f6i-T4-cAc">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="f6i-T4-cAc" id="gto-VJ-Ylf">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UHT-AK-AWy">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -93,6 +102,8 @@
                             <outlet property="delegate" destination="tUf-Hb-sEP" id="zbn-2u-sQm"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" systemItem="contacts" id="VPi-tL-8Yp"/>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Username" largeTitleDisplayMode="always" id="Qya-Hh-YjS">
                         <barButtonItem key="leftBarButtonItem" title="Log Out" id="OnA-s6-MvN">
                             <connections>
@@ -100,10 +111,50 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ol7-Yi-nU1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="134" y="43"/>
+            <point key="canvasLocation" x="1233" y="141"/>
+        </scene>
+        <!--Add Contact View Controller-->
+        <scene sceneID="23d-cc-TuM">
+            <objects>
+                <viewController id="xJp-1D-LBU" customClass="AddContactViewController" customModule="OracaoProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VUb-1Y-M5N"/>
+                        <viewControllerLayoutGuide type="bottom" id="NRh-6n-wcX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ELJ-d0-Jcu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9V3-5J-TcF">
+                                <rect key="frame" x="142" y="335" width="90" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Add Contact"/>
+                                <connections>
+                                    <action selector="addContact:" destination="xJp-1D-LBU" eventType="touchUpInside" id="Mrh-HT-MnY"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contact Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gjJ-Uh-zuQ">
+                                <rect key="frame" x="48" y="231" width="278" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="qqV-3R-RBh"/>
+                    <connections>
+                        <outlet property="txtContactName" destination="gjJ-Uh-zuQ" id="3ed-eY-Mvy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ti-fb-6Px" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1232.8" y="957.57121439280365"/>
         </scene>
         <!--Create Account View Controller-->
         <scene sceneID="5Xt-Pd-U9D">
@@ -163,12 +214,31 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="tUf-Hb-sEP" kind="relationship" relationship="rootViewController" id="uwa-fU-yRD"/>
+                        <segue destination="QOE-E2-pmZ" kind="relationship" relationship="rootViewController" id="uwa-fU-yRD"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i1O-BM-sq0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="134" y="-600"/>
+            <point key="canvasLocation" x="406" y="209"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="MAw-FV-kgP">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="QOE-E2-pmZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="B4s-1S-J5j"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="JUd-F3-icS">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="tUf-Hb-sEP" kind="relationship" relationship="viewControllers" id="xOC-OY-wYq"/>
+                        <segue destination="xJp-1D-LBU" kind="relationship" relationship="viewControllers" id="GDF-SX-0jZ"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eGY-Jx-op5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="406" y="959"/>
         </scene>
     </scenes>
 </document>

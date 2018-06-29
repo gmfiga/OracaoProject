@@ -22,6 +22,7 @@
 		C3E8B95B20E6ACF0008C2EC2 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E8B95A20E6ACEF008C2EC2 /* Contact.swift */; };
 		C3E8B95D20E6ADB2008C2EC2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E8B95C20E6ADB2008C2EC2 /* Extensions.swift */; };
 		C3E8B96120E6B4A5008C2EC2 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E8B96020E6B4A5008C2EC2 /* CreateAccountViewController.swift */; };
+		C3E8B96320E6C8B1008C2EC2 /* AddContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3E8B96220E6C8B1008C2EC2 /* AddContactViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		C3E8B95A20E6ACEF008C2EC2 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		C3E8B95C20E6ADB2008C2EC2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C3E8B96020E6B4A5008C2EC2 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		C3E8B96220E6C8B1008C2EC2 /* AddContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				814C3AC61B69877600E307BB /* Main.storyboard */,
+				C3E8B96220E6C8B1008C2EC2 /* AddContactViewController.swift */,
 				81BA814C1A49DA1800E65899 /* MainViewController.swift */,
 				C3E8B96020E6B4A5008C2EC2 /* CreateAccountViewController.swift */,
 				C3E8B95820E6AC99008C2EC2 /* ContactsTableViewController.swift */,
@@ -198,6 +201,7 @@
 			files = (
 				C3E8B96120E6B4A5008C2EC2 /* CreateAccountViewController.swift in Sources */,
 				C3E8B95D20E6ADB2008C2EC2 /* Extensions.swift in Sources */,
+				C3E8B96320E6C8B1008C2EC2 /* AddContactViewController.swift in Sources */,
 				C3E8B95B20E6ACF0008C2EC2 /* Contact.swift in Sources */,
 				81BA814D1A49DA1800E65899 /* MainViewController.swift in Sources */,
 				81BA814B1A49DA1800E65899 /* AppDelegate.swift in Sources */,
