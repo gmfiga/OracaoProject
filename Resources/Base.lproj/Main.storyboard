@@ -104,14 +104,8 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" systemItem="contacts" id="VPi-tL-8Yp"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Username" largeTitleDisplayMode="always" id="Qya-Hh-YjS">
-                        <barButtonItem key="leftBarButtonItem" title="Log Out" id="OnA-s6-MvN">
-                            <connections>
-                                <action selector="btn_actionLogOut:" destination="tUf-Hb-sEP" id="UsK-ik-GPO"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationItem key="navigationItem" title="Username" largeTitleDisplayMode="always" id="Qya-Hh-YjS"/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ol7-Yi-nU1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -135,6 +129,14 @@
                                 <state key="normal" title="Add Contact"/>
                                 <connections>
                                     <action selector="addContact:" destination="xJp-1D-LBU" eventType="touchUpInside" id="Mrh-HT-MnY"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ud-4A-HYY">
+                                <rect key="frame" x="0.0" y="64" width="62" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Log Out"/>
+                                <connections>
+                                    <action selector="btn_actionLogOut:" destination="xJp-1D-LBU" eventType="touchUpInside" id="1Lh-L4-cQy"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contact Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gjJ-Uh-zuQ">

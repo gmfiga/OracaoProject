@@ -39,6 +39,24 @@ class AddContactViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func btn_actionLogOut(_ sender: Any) {
+        let sv = UIViewController.displaySpinner(onView: self.view)
+        PFUser.logOutInBackground { (error: Error?) in
+            UIViewController.removeSpinner(spinner: sv)
+            if (error == nil){
+                self.loadLoginScreen()
+            }else{
+                if let descrip = error?.localizedDescription{
+                    self.displayErrorMessage(message: descrip)
+                }else{
+                    self.displayErrorMessage(message: "error logging out")
+                }
+                
+            }
+        }
+    }
+    
         
     func displayErrorMessage(message:String) {
         let alertView = UIAlertController(title: "Error!", message: message, preferredStyle: .alert)
@@ -62,6 +80,12 @@ class AddContactViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func loadLoginScreen(){
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "LogInPage") as! MainViewController
+        self.present(viewController, animated: true, completion: nil)
     }
     
 
