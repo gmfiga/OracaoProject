@@ -13,12 +13,12 @@ class ContactsTableViewController: UITableViewController {
     
     
     let numberOfRows = 7
-    var contacts: [Contact] = [
-        Contact(id:"1234", name:"Marcelo"),
-        Contact(id: "1235", name:"Aline")]
+    var contacts: [Contact] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadContacts()
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -53,9 +53,8 @@ class ContactsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContactCell", for: indexPath)
         
-        let contact = contacts[indexPath.row]
         
-        cell.textLabel?.text = "\(contact.name)"
+        cell.textLabel?.text = "\(contacts[indexPath.row].name)"
         cell.showsReorderControl = true
         
         
@@ -78,6 +77,25 @@ class ContactsTableViewController: UITableViewController {
             }
         }
     }
+    
+    func loadContacts() {
+        let query = PFQuery(className:"contact")
+        // query.fromLocalDatastore()
+        query.whereKeyExists("objectId")
+        query.findObjectsInBackground { (objects, error) in
+            if error == nil {
+                self.contacts.removeAll()
+                for object in objects! {
+                    self.contacts.append(Contact(id: object.value(forKey: "objectId")  as! String,
+                                             name: object.value(forKey: "name")  as! String))
+                }
+                self.tableView.reloadData()
+            } else {
+                print(error?.localizedDescription ?? String())
+            }
+        }
+    }
+    
     
     func displayMessage(message:String) {
         let alertView = UIAlertController(title: "Error!", message: message, preferredStyle: .alert)

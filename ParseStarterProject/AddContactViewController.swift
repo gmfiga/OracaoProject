@@ -14,8 +14,7 @@ class AddContactViewController: UIViewController {
     @IBOutlet weak var txtContactName: UITextField!
 
 
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -55,7 +54,7 @@ class AddContactViewController: UIViewController {
     
     func loadHomeScreen(){
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let loggedInViewController = storyBoard.instantiateViewController(withIdentifier: "LoggedInViewController") as! CreateAccountViewController
+        let loggedInViewController = storyBoard.instantiateViewController(withIdentifier: "Navigation") as! UINavigationController
         self.present(loggedInViewController, animated: true, completion: nil)
     }
     
