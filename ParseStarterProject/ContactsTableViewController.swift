@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class ContactsTableViewController: UITableViewController {
     
@@ -61,6 +62,40 @@ class ContactsTableViewController: UITableViewController {
         return cell
     }
     
+    @IBAction func btn_actionLogOut(_ sender: Any) {
+        let sv = UIViewController.displaySpinner(onView: self.view)
+        PFUser.logOutInBackground { (error: Error?) in
+            UIViewController.removeSpinner(spinner: sv)
+            if (error == nil){
+                self.loadLoginScreen()
+            }else{
+                if let descrip = error?.localizedDescription{
+                    self.displayMessage(message: descrip)
+                }else{
+                    self.displayMessage(message: "error logging out")
+                }
+                
+            }
+        }
+    }
+    
+    func displayMessage(message:String) {
+        let alertView = UIAlertController(title: "Error!", message: message, preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction) in
+        }
+        alertView.addAction(OKAction)
+        if let presenter = alertView.popoverPresentationController {
+            presenter.sourceView = self.view
+            presenter.sourceRect = self.view.bounds
+        }
+        self.present(alertView, animated: true, completion:nil)
+    }
+    
+    func loadLoginScreen(){
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyBoard.instantiateViewController(withIdentifier: "LogInPage") as! MainViewController
+        self.present(viewController, animated: true, completion: nil)
+    }
     
     /*
      // Override to support conditional editing of the table view.
